@@ -87,10 +87,6 @@ namespace FileStorage
         {
             if (ModelState.IsValid)
             {
-                //var user = await _userManager.GetUserAsync(User);
-                //movie.IDUser = user.Id;
-                //movie.Title = user.FirstName+" "+user.LastName;
-                //movie.ReleaseDate = DateTime.Now;
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
