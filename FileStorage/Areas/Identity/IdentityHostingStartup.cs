@@ -26,7 +26,10 @@ namespace FileStorage.Areas.Identity
                     options.Password.RequireLowercase = false;
                     options.Password.RequireUppercase = false;
                 })
+                    .AddRoles<IdentityRole>()
                    .AddEntityFrameworkStores<FileStorageContext>();
+                   
+
             });
         }
     }
