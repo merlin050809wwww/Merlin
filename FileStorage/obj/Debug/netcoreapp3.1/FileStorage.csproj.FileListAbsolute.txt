@@ -472,3 +472,4 @@ C:\Users\merli\source\repos\FileStorageGit\FileStorage\bin\Debug\netcoreapp3.1\B
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.csproj.CoreCompileInputs.cache
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\Razor\Views\Movies\AllFiles.cshtml.g.cs

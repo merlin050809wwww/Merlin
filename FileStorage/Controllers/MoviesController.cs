@@ -53,8 +53,17 @@ namespace FileStorage
                 {
                     movies = movies.Where(s => s.IDUser.Contains(searchString));
                 }
-                return View(await movies.ToListAsync());
-            
+            return View(await movies.ToListAsync());
+
+        }
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> AllFiles()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var movies = from m in _context.Movie
+                         select m;
+            return View(movies);
+
         }
 
         // GET: Movies/Details/5
