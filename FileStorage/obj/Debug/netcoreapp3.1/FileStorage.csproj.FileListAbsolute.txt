@@ -395,9 +395,6 @@ C:\Users\merli\source\repos\FileStorageGit\FileStorage\bin\Debug\netcoreapp3.1\r
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.csprojAssemblyReference.cache
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.AssemblyInfoInputs.cache
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.AssemblyInfo.cs
-C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.csproj.CoreCompileInputs.cache
-C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.RazorAssemblyInfo.cache
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.RazorAssemblyInfo.cs
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.TagHelpers.input.cache
@@ -469,3 +466,9 @@ C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\R
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
 C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\Razor\Views\Roles\UserList.cshtml.g.cs
+C:\Users\merli\source\repos\FileStorageGit\FileStorage\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\merli\source\repos\FileStorageGit\FileStorage\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\merli\source\repos\FileStorageGit\FileStorage\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.csproj.CoreCompileInputs.cache
+C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\merli\source\repos\FileStorageGit\FileStorage\obj\Debug\netcoreapp3.1\FileStorage.MvcApplicationPartsAssemblyInfo.cache

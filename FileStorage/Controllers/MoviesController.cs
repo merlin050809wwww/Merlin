@@ -10,12 +10,15 @@ using FileStorage.Models;
 using Microsoft.AspNetCore.Authorization;
 using FileStorage.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.IO.Compression;
 using Microsoft.AspNetCore.Hosting;
 using System.Runtime.CompilerServices;
+using System.Net.Mail;
+using System.Net;
+using Microsoft.Extensions.Logging;
+using FileStorage.Controllers;
 
 namespace FileStorage
 {
@@ -25,28 +28,37 @@ namespace FileStorage
         private readonly IWebHostEnvironment _appEnvironment;
         private readonly UserManager<FileStorageUser> _userManager;
         private readonly FileStorageContextData _context;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ILogger<HomeController> _logger;
+        private readonly Service service;
         public string filename;
 
 
-        public MoviesController(FileStorageContextData context, UserManager<FileStorageUser> userManager, IWebHostEnvironment appEnvironment)
+        public MoviesController(FileStorageContextData context, UserManager<FileStorageUser> userManager, IWebHostEnvironment appEnvironment, RoleManager<IdentityRole> roleManager, ILogger<HomeController> logger, Service service)
         {
             _context = context;
             _userManager = userManager;
             _appEnvironment = appEnvironment;
+            _roleManager = roleManager;
+            this.service = service;
+            _logger = logger;
         }
 
-        // GET: Movies
-        public async Task<IActionResult> Index(string searchString)
+       
+
+            // GET: Movies
+            public async Task<IActionResult> Index(string searchString)
         {
             var user = await _userManager.GetUserAsync(User);
             var movies = from m in _context.Movie
-                         select m;
-            searchString = user.Id;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                movies = movies.Where(s => s.IDUser.Contains(searchString));
-            }
-            return View(await movies.ToListAsync());
+                             select m;
+                searchString = user.Id;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    movies = movies.Where(s => s.IDUser.Contains(searchString));
+                }
+                return View(await movies.ToListAsync());
+            
         }
 
         // GET: Movies/Details/5
@@ -168,6 +180,7 @@ namespace FileStorage
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var user = await _userManager.GetUserAsync(User);
             var movie = await _context.Movie.FindAsync(id);
             _context.Movie.Remove(movie);
             string path = @".\Files\" + movie.Name.Replace(Path.GetExtension(movie.Name), ".zip");
@@ -176,6 +189,7 @@ namespace FileStorage
             {
                 fileInf.Delete();
             }
+            service.SendEmailDefault("File (" + movie.Name + ") Deleted by " + user.FirstName + " " + user.LastName+" " +movie.ReleaseDate.ToString(),user.Email);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -195,6 +209,7 @@ namespace FileStorage
             movie.Name =filename.Replace(Path.GetExtension(filename), ".zip");
             ZipFile.CreateFromDirectory(@".\Upload", @".\Files\" + movie.Name.Replace(Path.GetExtension(movie.Name), ".zip"));
             DirectoryInfo dirInfo = new DirectoryInfo(@".\Upload");
+            service.SendEmailDefault("File ("+ movie.Name+") Upload by "+user.FirstName+" "+user.LastName + " " + movie.ReleaseDate.ToString(),user.Email);
             foreach (FileInfo File in dirInfo.GetFiles())
             {
                 File.Delete();
@@ -239,9 +254,13 @@ namespace FileStorage
 
         }
 
+
+
         private bool MovieExists(int id)
         {
             return _context.Movie.Any(e => e.Id == id);
         }
-    }
+
+
+        }
 }

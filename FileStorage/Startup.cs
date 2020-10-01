@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FileStorage.Areas.Identity.Data;
+using FileStorage.Controllers;
 using FileStorage.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,7 @@ namespace FileStorage
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddAuthorization();
+            services.AddTransient<Service>();
 
             services.AddDbContext<FileStorageContextData>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("FileStorageContextConnection")));
