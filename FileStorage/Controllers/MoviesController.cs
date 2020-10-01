@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FileStorage.Data;
 using FileStorage.Models;
@@ -14,9 +13,6 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.IO.Compression;
 using Microsoft.AspNetCore.Hosting;
-using System.Runtime.CompilerServices;
-using System.Net.Mail;
-using System.Net;
 using Microsoft.Extensions.Logging;
 using FileStorage.Controllers;
 
